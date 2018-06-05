@@ -23,9 +23,11 @@
         "php": ">=7.0",
         "albertcht/invisible-recaptcha": "^1.4",
         "arcanedev/log-viewer": "~4.0",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "caouecs/laravel-lang": "~3.0",
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "doctrine/dbal": "^2.7",
         "kyslik/column-sortable": "^5.4",
         "labs64/netlicensingclient-php": "^2.3",
         "laravel/framework": "5.5.*",
@@ -38,8 +40,6 @@
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~6.0",
         "barryvdh/laravel-debugbar": "^2.1",
-        "barryvdh/laravel-ide-helper": "^2.2",
-        "doctrine/dbal": "^2.5",
         "filp/whoops": "~2.0"
     },
     "autoload": {

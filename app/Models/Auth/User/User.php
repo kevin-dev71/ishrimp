@@ -48,6 +48,11 @@ use Kyslik\ColumnSortable\Sortable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereRole($role)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Auth\User\User withoutTrashed()
  */
 class User extends Authenticatable
 {
