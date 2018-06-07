@@ -23,8 +23,26 @@ class FincaRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        switch ($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                return [];
+            case 'POST': {
+                $rules = [
+                    'name' => 'required|min:1',
+                    'piscinas' => 'required|between:0.001,999999.999',
+                ];
+                if(! is_null($this->piscinas))
+                    foreach ($this->piscinas as $key => $val) {
+                        $rules['piscinas.'.$key] = 'required';
+                    }
+                return $rules;
+            }
+            case 'PUT': {
+                return [
+                    'name' => 'required|min:5'
+                ];
+            }
+        }
     }
 }

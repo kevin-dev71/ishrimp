@@ -16,7 +16,7 @@ class CreateFincasTable extends Migration
         Schema::create('fincas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('total_area');
+            $table->string('total_area')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

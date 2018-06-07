@@ -18,9 +18,11 @@ class Finca extends Model
 
     public $sortable = ['name', 'total_area', 'created_at', 'updated_at'];
 
+    protected $fillable = ['name' , 'total_area'];
+
 
     public function piscinas(){
-        return $this->hasMany(Piscina::class)->select('id' , 'fincas_id', 'area');
+        return $this->hasMany(Piscina::class)->select('id' , 'finca_id', 'area');
     }
 
 
