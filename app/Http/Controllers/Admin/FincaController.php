@@ -65,8 +65,25 @@ class FincaController extends Controller
             'total_area' => $total_area
         ])->save();
 
+        $total_piscinas = $finca->total_piscinas;
+        $total_piscinas_a_modificar = count($finca_request->input("piscinas"));
 
+        if($total_piscinas === $total_piscinas_a_modificar){ // no se adicionaron ni quitaron piscinas
+            foreach($finca->piscinas as $key => $piscina){
+                $piscina->fill([
+                    'area' => $finca_request->input("piscinas.".$key)
+                ])->save();
+            }
+        }
 
-        return back()->with('message', ['success', __('Curso actualizado')]);
+        if($total_piscinas < $total_piscinas_a_modificar){ // Se adicionaron piscinas
+            foreach($finca->piscinas as $key => $piscina){
+                $piscina->fill([
+                    'area' => $finca_request->input("piscinas.".$key)
+                ])->save();
+            }
+        }
+
+        return back()->with('message', ['success', __('Finca actualizado')]);
     }
 }

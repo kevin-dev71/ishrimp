@@ -25,5 +25,11 @@ class Finca extends Model
         return $this->hasMany(Piscina::class)->select('id' , 'finca_id', 'area');
     }
 
+    public function getTotalPiscinasAttribute()
+    {
+        return $this->hasMany(Piscina::class)->whereFincaId($this->id)->count();
+
+    }
+
 
 }

@@ -86,7 +86,7 @@
 @push('myscripts')
 <script>
     a = 0;
-    @if($key)
+    @if($finca->id)
         a = {{ $key }}
     @endif
     function addPiscina(){
