@@ -17,6 +17,7 @@
                     <div class="title_left">
                         <h1 class="h3">@yield('title')</h1>
                     </div>
+                    @yield('boton')
                     @if(Breadcrumbs::exists())
                         <div class="title_right">
                             <div class="pull-right">
@@ -41,4 +42,5 @@
 
 @section('scripts')
     {{ Html::script(mix('assets/admin/js/admin.js')) }}
+    @stack('myscripts')
 @endsection

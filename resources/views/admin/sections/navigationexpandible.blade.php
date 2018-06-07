@@ -1,4 +1,4 @@
-<div class="col-md-3 left_col menu_fixed">
+<div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="{{ route('admin.dashboard') }}" class="site_title">
@@ -40,54 +40,42 @@
                     <li>
                         <a href="{{ route('admin.users') }}">
                             <i class="fa fa-users" aria-hidden="true"></i>
-                            {{ __('Usuarios') }}
+                            {{ __('views.backend.section.navigation.menu_1_1') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.permissions') }}">
                             <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Permisos de Usuarios') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.fincas.index') }}">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Fincas y Piscinas') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Planificaciones') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Metricas') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Productos para Balanceado') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Insumos') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Tallas') }}
+                            {{ __('views.backend.section.navigation.menu_1_2') }}
                         </a>
                     </li>
                 </ul>
             </div>
+            <div class="menu_section">
+                <h3>{{ __('views.backend.section.navigation.sub_header_2') }}</h3>
 
+                <ul class="nav side-menu">
+                    <li>
+                        <a>
+                            <i class="fa fa-list"></i>
+                            {{ __('views.backend.section.navigation.menu_2_1') }}
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('log-viewer::dashboard') }}">
+                                    {{ __('views.backend.section.navigation.menu_2_2') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('log-viewer::logs.list') }}">
+                                    {{ __('views.backend.section.navigation.menu_2_3') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
         </div>
         <!-- /sidebar menu -->
