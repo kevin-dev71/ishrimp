@@ -75,14 +75,25 @@ class FincaController extends Controller
                 ])->save();
             }
         }
-
-        if($total_piscinas < $total_piscinas_a_modificar){ // Se adicionaron piscinas
-            foreach($finca->piscinas as $key => $piscina){
-                $piscina->fill([
-                    'area' => $finca_request->input("piscinas.".$key)
-                ])->save();
+        else
+            if($total_piscinas < $total_piscinas_a_modificar){ // Se adicionaron piscinas
+                foreach($finca->piscinas as $key => $piscina){
+                    $piscina->fill([
+                        'area' => $finca_request->input("piscinas.".$key)
+                    ])->save();
+                }
+                foreach ($finca_request->input("piscinas") as $k => $area){
+                    if ($k < $total_piscinas) continue;
+                    Piscina::create([
+                        'finca_id' => $finca->id,
+                        'area' => $area
+                    ]);
+                }
             }
-        }
+            else{ // se eliminaron piscinas
+                
+            }
+
 
         return back()->with('message', ['success', __('Finca actualizado')]);
     }
