@@ -78,7 +78,7 @@
         <!-- Laravel variables for js -->
         @tojs
     </head>
-    <body>
+    <body style="background: #ffffff url('http://agroseacom.ec/wp-content/uploads/2018/02/agroseacom-bg2.jpg');">
         <div class="flex-center position-ref full-height">
 
                 <div class="top-right links">
@@ -87,14 +87,14 @@
                     @if (Route::has('login'))
                         @if (!Auth::check())
                             @if(config('auth.users.registration'))
-                                <a href="{{ url('/register') }}">{{ __('views.welcome.register') }}</a>
+                                <a  href="{{ url('/register') }}">{{ __('views.welcome.register') }}</a>
                             @endif
                             <a href="{{ url('/login') }}">{{ __('views.welcome.login') }}</a>
                         @else
                             @if(auth()->user()->hasRole('administrator'))
-                                <a href="{{ url('/admin') }}">{{ __('views.welcome.admin') }}</a>
+                                <a class="text-white bg-dark" href="{{ url('/admin') }}">{{ __('views.welcome.admin') }}</a>
                             @endif
-                            <a href="{{ url('/logout') }}">{{ __('views.welcome.logout') }}</a>
+                            <a class="text-white bg-dark" href="{{ url('/logout') }}">{{ __('views.welcome.logout') }}</a>
                         @endif
                     @endif
                 </div>

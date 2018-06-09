@@ -35,7 +35,7 @@
                 </ul>
             </div>
             <div class="menu_section">
-                <h3>{{ __('Administracion') }}</h3>
+                <h3>{{ __('Administracion de Usuarios') }}</h3>
                 <ul class="nav side-menu">
                     <li>
                         <a href="{{ route('admin.users') }}">
@@ -49,10 +49,27 @@
                             {{ __('Permisos de Usuarios') }}
                         </a>
                     </li>
+                </ul>
+            </div>
+            <div class="menu_section">
+                <h3>{{ __('Configuracion Maestros') }}</h3>
+                <ul class="nav side-menu">
                     <li>
                         <a href="{{ route('admin.fincas.index') }}">
                             <i class="fa fa-key" aria-hidden="true"></i>
                             {{ __('Fincas y Piscinas') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.products.index') }}">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                            {{ __('Productos para Balanceado') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.insumos.index') }}">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                            {{ __('Insumos') }}
                         </a>
                     </li>
                     <li>
@@ -61,34 +78,25 @@
                             {{ __('Planificaciones') }}
                         </a>
                     </li>
+                </ul>
+            </div>
+            <div class="menu_section">
+                <h3>{{ __('Configuracion Inicial') }}</h3>
+                <ul class="nav side-menu">
                     <li>
-                        <a href="#">
+                        <a href="{{ route('admin.metrics.index') }}">
                             <i class="fa fa-key" aria-hidden="true"></i>
                             {{ __('Metricas') }}
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Productos para Balanceado') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            {{ __('Insumos') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
+                        <a href="{{ route('admin.tallas.index') }}">
                             <i class="fa fa-key" aria-hidden="true"></i>
                             {{ __('Tallas') }}
                         </a>
                     </li>
                 </ul>
             </div>
-
-
         </div>
         <!-- /sidebar menu -->
     </div>

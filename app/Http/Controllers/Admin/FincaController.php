@@ -19,9 +19,7 @@ class FincaController extends Controller
     }
 
     public function show(Finca $finca){
-
         return view('admin.fincas.detail' , compact('finca'));
-
     }
 
     public function create () {
@@ -96,5 +94,17 @@ class FincaController extends Controller
 
 
         return back()->with('message', ['success', __('Finca actualizado')]);
+    }
+
+    public function destroy (Finca $finca) {
+        try {
+            foreach ($finca->piscinas as $piscina){
+                $piscina->delete();
+            }
+            $finca->delete();
+            return back()->with('message', ['success', __("Finca y piscinas eliminado correctamente")]);
+        } catch (\Exception $exception) {
+            return back()->with('message', ['danger', __("Error eliminando la finca, no se pudo eliminar")]);
+        }
     }
 }

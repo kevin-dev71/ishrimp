@@ -65,6 +65,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('dashboard/registration-chart', 'DashboardController@getRegistrationChartData')->name('dashboard.registration.chart');
 
     Route::resource('fincas' , 'FincaController');
+    Route::resource('metrics' , 'MetricController');
+    Route::resource('tallas' , 'TallaController');
+    Route::resource('products' , 'ProductController');
+    Route::resource('insumos' , 'InsumoController');
 
 });
 

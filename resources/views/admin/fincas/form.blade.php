@@ -71,7 +71,7 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <a href="{{ route('admin.fincas.index') }}" class="btn btn-primary" type="button">Cancelar</a>
+                                <a href="{{ route('admin.fincas.index') }}" class="btn btn-primary" type="button">Regresar</a>
                                 <button type="submit" class="btn btn-success">{{ $btnText }}</button>
                             </div>
                         </div>

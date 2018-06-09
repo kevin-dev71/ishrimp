@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="title m-b-md">
-        {{ config('app.name') }}
+        {{-- config('app.name') --}}
+        <img src='http://agroseacom.ec/wp-content/uploads/2018/02/Untitled-3.png'>
     </div>
     <div class="m-b-md">
         Sample users:<br/>

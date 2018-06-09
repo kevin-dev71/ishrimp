@@ -34,10 +34,10 @@
                         <a class="btn btn-xs btn-info" href="{{ route('admin.fincas.edit', [$finca->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.edit') }}">
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <button class="btn btn-xs btn-danger user_destroy"
-                        data-url="{{ route('admin.fincas.destroy', [$finca->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.delete') }}">
-                        <i class="fa fa-trash"></i>
-                        </button>
+                        <a class="btn btn-xs" href="#">
+                            @include('admin.partials.fincas.delete')
+                        </a>
+
                     </td>
                 </tr>
             @endforeach
