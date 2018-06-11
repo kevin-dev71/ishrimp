@@ -16,8 +16,10 @@ class Planificaciones extends Migration
         Schema::create('planificaciones', function (Blueprint $table) {
             $table->unsignedInteger('finca_id');
             $table->foreign('finca_id')->references('id')->on('fincas');
-            $table->unsignedInteger('ciclos_id');
-            $table->foreign('ciclos_id')->references('id')->on('ciclos');
+            $table->string('ano');
+            $table->string('ciclo');
+            $table->date('fecha_inicial');
+            $table->date('fecha_final');
             $table->softDeletes();
         });
     }

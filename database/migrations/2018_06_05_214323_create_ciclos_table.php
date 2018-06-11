@@ -17,7 +17,6 @@ class CreateCiclosTable extends Migration
             $table->increments('id');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->unsignedInteger('num_ciclos');
             $table->softDeletes();
         });
     }

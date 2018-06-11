@@ -11,5 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Ciclo extends Model
 {
-    //
+    public function planificaciones(){
+        return $this->belongsToMany(Planificacion::class);
+    }
 }

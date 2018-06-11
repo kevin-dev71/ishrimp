@@ -43,6 +43,7 @@ Route::group(['namespace' => 'Auth'], function () {
     // Social Authentication Routes...
     Route::get('social/redirect/{provider}', 'SocialLoginController@redirect')->name('social.redirect');
     Route::get('social/login/{provider}', 'SocialLoginController@login')->name('social.login');
+
 });
 
 /**
@@ -69,6 +70,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('tallas' , 'TallaController');
     Route::resource('products' , 'ProductController');
     Route::resource('insumos' , 'InsumoController');
+    Route::resource('planificaciones' , 'PlanificacionController');
 
 });
 
@@ -83,3 +85,13 @@ Route::group(['as' => 'protection.'], function () {
     Route::get('membership/access-denied', 'MembershipController@failed')->name('membership.failed');
     Route::get('membership/clear-cache/', 'MembershipController@clearValidationCache')->name('membership.clear_validation_cache');
 });
+
+/**
+ * Rutas de operadores y admin
+ */
+
+Route::group(['middleware' => ['auth']] , function(){
+    Route::get('ciclos' , 'CicloController@index')->name('ciclos.index');
+});
+
+
