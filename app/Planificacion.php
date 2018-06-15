@@ -22,4 +22,8 @@ class Planificacion extends Model
     public function fincas(){
         return $this->belongsToMany(Finca::class);
     }
+
+    public function ciclo(){
+        return $this->belongsTo(Ciclo::class);
+    }
 }

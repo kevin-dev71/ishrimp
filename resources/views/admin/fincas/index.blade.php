@@ -37,7 +37,6 @@
                         <a class="btn btn-xs" href="#">
                             @include('admin.partials.fincas.delete')
                         </a>
-
                     </td>
                 </tr>
             @endforeach

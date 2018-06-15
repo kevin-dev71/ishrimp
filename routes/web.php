@@ -92,6 +92,12 @@ Route::group(['as' => 'protection.'], function () {
 
 Route::group(['middleware' => ['auth']] , function(){
     Route::get('ciclos' , 'CicloController@index')->name('ciclos.index');
+    Route::get('ciclos/show/{finca_id}' , 'CicloController@show')->name('ciclos.show');
+    Route::get('ciclos/create/{finca_id}' , 'CicloController@create')->name('ciclos.create');
+    Route::post('ciclos/store' , 'CicloController@store')->name('ciclos.store');
+    Route::get('ciclos/{ciclo}/edit' , 'CicloController@edit')->name('ciclos.edit');
+    Route::put('ciclos/{ciclo}' , 'CicloController@update')->name('ciclos.update');
+    Route::delete('ciclos/{ciclo}' , 'CicloController@destroy')->name('ciclos.destroy');
 });
 
 

@@ -17,6 +17,7 @@ class CreatePiscinasTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('finca_id');
             $table->foreign('finca_id')->references('id')->on('fincas');
+            $table->string('name');
             $table->string('area');
             $table->timestamps();
             $table->softDeletes();

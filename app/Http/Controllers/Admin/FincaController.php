@@ -30,6 +30,7 @@ class FincaController extends Controller
 
     public function store (FincaRequest $finca_request) {
         $total_area = 0;
+        $i = 0;
         foreach ($finca_request->input("piscinas") as $area){
             $total_area += $area;
         }
@@ -41,6 +42,7 @@ class FincaController extends Controller
         foreach ($finca_request->input("piscinas") as $area){
             Piscina::create([
                 'finca_id' => $finca_id,
+                'name' => ++$i,
                 'area' => $area
             ]);
         }
@@ -84,6 +86,7 @@ class FincaController extends Controller
                     if ($k < $total_piscinas) continue;
                     Piscina::create([
                         'finca_id' => $finca->id,
+                        'name' => $k+1,
                         'area' => $area
                     ]);
                 }

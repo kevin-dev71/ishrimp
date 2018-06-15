@@ -16,8 +16,8 @@
                     <div class="icon"><i class="fa fa-check-square-o"></i></div>
                     <div class="count">{{ __("Nombre de La Finca: "). $finca->name }}</div>
                     @foreach($finca->piscinas as $key => $piscina)
-                        <h3>{{ __("Piscinas "). ++$key . ": "}}</h3>
-                        <p>{{ __("Hectareas: ") . $piscina->area}}</p>
+                        <h3>{{ __("Piscinas ") . $piscina->name }}</h3>
+                        <p>{{ __("Hectareas: ") . $piscina->area }}</p>
                     @endforeach
                     <p>Superficie total de la finca: {{ $finca->total_area }} Hectareas</p>
                 </div>
