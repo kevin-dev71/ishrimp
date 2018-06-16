@@ -29,7 +29,7 @@
                     <td>{{ $insumo->name }}</td>
                     <td>{{ $insumo->proveedor }}</td>
                     <td>{{ $insumo->cantidad . " " . $insumo->metric->name }}</td>
-                    <td>{{ $insumo->precio }}</td>
+                    <td>${{ $insumo->precio }}</td>
                     <td>{{ $insumo->created_at }}</td>
                     <td>
                         <a class="btn btn-xs btn-primary" href="{{ route('admin.insumos.show', [$insumo->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.show') }}">
