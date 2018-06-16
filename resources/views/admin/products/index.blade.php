@@ -29,7 +29,7 @@
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->proveedor }}</td>
                     <td>{{ $product->cantidad . " " . $product->metric->name }}</td>
-                    <td>{{ $product->precio }}</td>
+                    <td>${{ $product->precio }}</td>
                     <td>{{ $product->created_at }}</td>
                     <td>
                         <a class="btn btn-xs btn-primary" href="{{ route('admin.products.show', [$product->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.show') }}">
