@@ -23,4 +23,17 @@ class Product extends Model
     public function metric(){
         return $this->belongsTo(Metric::class);
     }
+
+    public function ciclos(){
+        return $this->belongsToMany(Ciclo::class);
+    }
+
+    /*public function newPivot(Model $parent, array $attributes, $table, $exists)
+    {
+        if ($parent instanceof Ciclo) {
+            return new CicloProductPivot($parent, $attributes, $table, $exists);
+        }
+
+        return parent::newPivot($parent, $attributes, $table, $exists);
+    }*/
 }

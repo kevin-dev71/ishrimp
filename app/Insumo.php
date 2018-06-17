@@ -22,4 +22,8 @@ class Insumo extends Model
     public function metric(){
         return $this->belongsTo(Metric::class);
     }
+
+    public function ciclos(){
+        return $this->belongsToMany(Ciclo::class);
+    }
 }

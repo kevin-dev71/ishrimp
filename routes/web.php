@@ -98,6 +98,13 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::get('ciclos/{ciclo}/edit' , 'CicloController@edit')->name('ciclos.edit');
     Route::put('ciclos/{ciclo}' , 'CicloController@update')->name('ciclos.update');
     Route::delete('ciclos/{ciclo}' , 'CicloController@destroy')->name('ciclos.destroy');
+    Route::get('ciclos/create/balanceado/{ciclo}' , 'CicloController@createBalanceado')->name('ciclos.create.balanceado');
+    Route::get('ciclos/create/insumo/{ciclo}' , 'CicloController@createInsumo')->name('ciclos.create.insumo');
+    Route::get('ciclos/aplicaciones/{ciclo}' , 'CicloController@aplicacionesIndex')->name('ciclos.aplicaciones');
+    Route::post('ciclos/balanceado/store' , 'CicloController@storeBalanceado')->name('ciclos.store.balanceado');
+    Route::delete('ciclos/balanceado/{product_id}' , 'CicloController@destroyBalanceado')->name('ciclos.destroy.balanceado');
+    Route::post('ciclos/insumo/store' , 'CicloController@storeInsumo')->name('ciclos.store.insumo');
+    Route::delete('ciclos/insumo/{insumo_id}' , 'CicloController@destroyInsumo')->name('ciclos.destroy.insumo');
 });
 
 

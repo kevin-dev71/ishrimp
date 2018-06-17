@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ciclo;
 use App\Finca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CicloController extends Controller
 {
@@ -66,6 +67,83 @@ class CicloController extends Controller
             return back()->with('message', ['success', __("Siembra Desactivado correctamente")]);
         } catch (\Exception $exception) {
             return back()->with('message', ['danger', __("Error desactivando la siembra, no se pudo eliminar")]);
+        }
+    }
+
+    public function aplicacionesIndex(Ciclo $ciclo)
+    {
+        return view('ciclos.aplicaciones.index' , compact('ciclo'));
+    }
+
+    public function createBalanceado(Ciclo $ciclo)
+    {
+        $btnText = __("Guardar");
+        return view('ciclos.aplicaciones.balanceadoform' , compact('ciclo' , 'btnText'));
+    }
+
+    public function storeBalanceado (Request $request) {
+        /*
+         * $this->validate($request, [
+                'user_id' => 'required|integer'
+            ]);
+        */
+        $ciclo = Ciclo::findOrFail($request->ciclo_id);
+
+        $ciclo->products()->attach( $request->producto , [
+            'cantidad_aplicada' => $request->cantidad
+        ]);
+
+        return back()->with('message', ['success', __('Balanceado Registrado Correctamente')]);
+    }
+
+    public function createInsumo(Ciclo $ciclo)
+    {
+        $btnText = __("Guardar");
+        return view('ciclos.aplicaciones.insumoform' , compact('ciclo' , 'btnText'));
+    }
+
+    public function storeInsumo (Request $request) {
+        /*
+         * $this->validate($request, [
+                'user_id' => 'required|integer'
+            ]);
+        */
+        $ciclo = Ciclo::findOrFail($request->ciclo_id);
+
+        $ciclo->insumos()->attach( $request->insumo , [
+            'cantidad_aplicada' => $request->cantidad
+        ]);
+
+        return back()->with('message', ['success', __('Insumo Registrado Correctamente')]);
+    }
+
+    public function destroyBalanceado (Request $request , $product_id) {
+        try {
+            DB::delete('delete from ciclo_product where ciclo_id = ? AND product_id = ? AND cantidad_aplicada = ? AND created_at = ?', array(
+                    $request->ciclo_id,
+                    $product_id,
+                    $request->cantidad_aplicada,
+                    $request->created_at
+                )
+            );
+            return back()->with('message', ['success', __("Eliminado Producto Correctamente")]);
+        } catch (\Exception $exception) {
+            return back()->with('message', ['danger', __("Error Eliminando el Producto, no se pudo eliminar")]);
+        }
+    }
+
+    public function destroyInsumo (Request $request , $insumo_id) {
+        try {
+            DB::delete('delete from ciclo_insumo where ciclo_id = ? AND insumo_id = ? AND cantidad_aplicada = ? AND created_at = ?', array(
+                    $request->ciclo_id,
+                    $insumo_id,
+                    $request->cantidad_aplicada,
+                    $request->created_at
+                )
+            );
+            return back()->with('message', ['success', __("Eliminado Insumo Correctamente")]);
+        } catch (\Exception $exception) {
+            return back()->with('message', ['danger', __("Error Eliminando el Insumo, no se pudo eliminar")]);
         }
     }
 }

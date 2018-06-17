@@ -38,14 +38,14 @@
                         <a class="btn btn-xs" href="#">
                             @include('ciclos.partials.delete')
                         </a>
-                        <a class="btn btn-xs btn-warning" href="{{ route('ciclos.edit', [$piscina->ciclo_id]) }}">
+                        <a class="btn btn-xs btn-info" href="{{ route('ciclos.aplicaciones', [$piscina->ciclo_id]) }}">
+                            Ver Insumos y Balanceados Aplicados
+                        </a>
+                        <a class="btn btn-xs btn-warning" href="{{ route('ciclos.create.balanceado', [$piscina->ciclo_id]) }}">
                             Aplicar Balanceado
                         </a>
-                        <a class="btn btn-xs btn-warning" href="{{ route('ciclos.edit', [$piscina->ciclo_id]) }}">
+                        <a class="btn btn-xs btn-warning" href="{{ route('ciclos.create.insumo', [$piscina->ciclo_id]) }}">
                             Aplicar Insumo
-                        </a>
-                        <a class="btn btn-xs btn-info" href="{{ route('ciclos.edit', [$piscina->ciclo_id]) }}">
-                            Ver Insumos y Balanceados Aplicados
                         </a>
                     </td>
                 </tr>
