@@ -16,7 +16,8 @@
             <thead>
             <tr>
                 <th>@sortablelink('name',  __('Unidad de Medicion'),['page' => $metrics->currentPage()])</th>
-                <th>@sortablelink('valor',__('Valor de la unidad'),['page' => $metrics->currentPage()])</th>
+                <th>@sortablelink('equivalente',  __('Unidad a Convertir'),['page' => $metrics->currentPage()])</th>
+                <th>@sortablelink('valor',__('Valor equivalente'),['page' => $metrics->currentPage()])</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -24,7 +25,8 @@
             @foreach($metrics as $metric)
                 <tr>
                     <td>{{ $metric->name }}</td>
-                    <td>{{ $metric->valor }}</td>
+                    <td>{{ $metric->equivalente }}</td>
+                    <td>{{ $metric->valor . " ". $metric->equivalente }}</td>
                     <td>
                         <a class="btn btn-xs btn-primary" href="{{ route('admin.metrics.show', [$metric->id]) }}" data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.show') }}">
                             <i class="fa fa-eye"></i>
