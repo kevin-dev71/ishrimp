@@ -16,6 +16,7 @@ class CreateMetricsTable extends Migration
         Schema::create('metrics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->comment('ml, gal, gr, kg, etc.');
+            $table->string('equivalente')->comment('ml, gal, gr, kg, etc.');
             $table->string('valor')->comment('valor a unidad principal, ej: si name es ML, el valor seria 0.001 Litros');
             $table->timestamps();
             $table->softDeletes();

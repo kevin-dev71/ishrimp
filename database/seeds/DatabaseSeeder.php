@@ -18,34 +18,42 @@ class DatabaseSeeder extends Seeder
         // =================== CREACION DE METRICAS ===================
         factory(\App\Metric::class, 1)->create([
             'name' => 'mL',
+            'equivalente' => 'L',
             'valor' => '0.001'
         ]);
         factory(\App\Metric::class, 1)->create([
             'name' => 'L',
-            'valor' => '1'
+            'equivalente' => 'ml',
+            'valor' => '1000'
         ]);
         factory(\App\Metric::class, 1)->create([
             'name' => 'gal',
+            'equivalente' => 'L',
             'valor' => '3.78'
         ]);
         factory(\App\Metric::class, 1)->create([
             'name' => 'mg',
+            'equivalente' => 'gr',
             'valor' => '0.001'
         ]);
         factory(\App\Metric::class, 1)->create([
             'name' => 'gr',
-            'valor' => '1'
+            'equivalente' => 'kg',
+            'valor' => '1000'
         ]);
         factory(\App\Metric::class, 1)->create([
             'name' => 'Kg',
+            'equivalente' => 'gr',
             'valor' => '1000'
         ]);
         factory(\App\Metric::class, 1)->create([
             'name' => 'lb',
+            'equivalente' => 'gr',
             'valor' => '453.59'
         ]);
         factory(\App\Metric::class, 1)->create([
             'name' => 'unidad',
+            'equivalente' => 'unidad',
             'valor' => '1'
         ]);
 
