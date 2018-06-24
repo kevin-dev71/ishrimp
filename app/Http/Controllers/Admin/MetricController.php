@@ -30,6 +30,7 @@ class MetricController extends Controller
     public function store (MetricRequest $metric_request) {
         Metric::create([
             'name' => $metric_request->name ,
+            'equivalente' => $metric_request->equivalente ,
             'valor' => $metric_request->valor
         ]);
 
@@ -44,6 +45,7 @@ class MetricController extends Controller
     public function update (MetricRequest $metric_request, Metric $metric) {
         $metric->fill([
             'name' => $metric_request->name ,
+            'equivalente' => $metric_request->equivalente ,
             'valor' => $metric_request->valor
         ])->save();
 

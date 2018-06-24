@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ciclo;
 use App\Finca;
+use App\Metric;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -72,7 +73,8 @@ class CicloController extends Controller
 
     public function aplicacionesIndex(Ciclo $ciclo)
     {
-        return view('ciclos.aplicaciones.index' , compact('ciclo'));
+        $metrics = Metric::all();
+        return view('ciclos.aplicaciones.index' , compact('ciclo' , 'metrics'));
     }
 
     public function createBalanceado(Ciclo $ciclo)
@@ -90,7 +92,8 @@ class CicloController extends Controller
         $ciclo = Ciclo::findOrFail($request->ciclo_id);
 
         $ciclo->products()->attach( $request->producto , [
-            'cantidad_aplicada' => $request->cantidad
+            'cantidad_aplicada' => $request->cantidad ,
+            'metric_aplicada_id' => $request->metrica
         ]);
 
         return back()->with('message', ['success', __('Balanceado Registrado Correctamente')]);
@@ -111,7 +114,8 @@ class CicloController extends Controller
         $ciclo = Ciclo::findOrFail($request->ciclo_id);
 
         $ciclo->insumos()->attach( $request->insumo , [
-            'cantidad_aplicada' => $request->cantidad
+            'cantidad_aplicada' => $request->cantidad,
+            'metric_aplicada_id' => $request->metrica
         ]);
 
         return back()->with('message', ['success', __('Insumo Registrado Correctamente')]);
@@ -119,10 +123,11 @@ class CicloController extends Controller
 
     public function destroyBalanceado (Request $request , $product_id) {
         try {
-            DB::delete('delete from ciclo_product where ciclo_id = ? AND product_id = ? AND cantidad_aplicada = ? AND created_at = ?', array(
+            DB::delete('delete from ciclo_product where ciclo_id = ? AND product_id = ? AND cantidad_aplicada = ? AND metric_aplicada_id = ? AND created_at = ?', array(
                     $request->ciclo_id,
                     $product_id,
                     $request->cantidad_aplicada,
+                    $request->metric_aplicada_id,
                     $request->created_at
                 )
             );
@@ -134,10 +139,11 @@ class CicloController extends Controller
 
     public function destroyInsumo (Request $request , $insumo_id) {
         try {
-            DB::delete('delete from ciclo_insumo where ciclo_id = ? AND insumo_id = ? AND cantidad_aplicada = ? AND created_at = ?', array(
+            DB::delete('delete from ciclo_insumo where ciclo_id = ? AND insumo_id = ? AND cantidad_aplicada = ? AND metric_aplicada_id = ? AND created_at = ?', array(
                     $request->ciclo_id,
                     $insumo_id,
                     $request->cantidad_aplicada,
+                    $request->metric_aplicada_id,
                     $request->created_at
                 )
             );

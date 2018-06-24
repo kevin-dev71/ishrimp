@@ -58,6 +58,21 @@
                             @endif
                         </div>
 
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="metrica">
+                                Unidad de Medicion:
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select required name="metrica" id="metrica" class="form-control col-md-3 col-xs-12">
+                                    @foreach(\App\Metric::pluck('name', 'id') as $id => $metric)
+                                        <option value="{{ $id }}">
+                                            {{ $metric }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

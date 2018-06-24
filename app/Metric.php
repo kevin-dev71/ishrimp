@@ -17,7 +17,7 @@ class Metric extends Model
 
     public $sortable = ['name', 'valor'];
 
-    protected $fillable = ['name' , 'valor'];
+    protected $fillable = ['name' , 'equivalente' , 'valor'];
 
     public function products(){
         return $this->belongsToMany(Product::class)->select('id' , 'metric_id', 'name' , 'proveedor' , 'cantidad' , 'precio');

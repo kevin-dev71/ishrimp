@@ -35,7 +35,15 @@
                             @foreach($ciclo->products as $product)
                                 <tr>
                                     <td>{{ $product->name }}</td>
-                                    <td>{{ $product->pivot->cantidad_aplicada . " " . $product->metric->name }} </td>
+                                    <td>
+                                        {{ $product->pivot->cantidad_aplicada }}
+                                        @foreach($metrics as $metric)
+                                            @if($metric->id === $product->pivot->metric_aplicada_id)
+                                                {{ $metric->name }}
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    </td>
                                     <td>{{ $product->pivot->created_at }}</td>
                                     <td>
                                         <a class="btn btn-xs" href="#">
@@ -44,6 +52,7 @@
                                                 {!! method_field('DELETE') !!}
                                                 <input name="ciclo_id" type="hidden" value="{{ $ciclo->id }}">
                                                 <input name="cantidad_aplicada" type="hidden" value="{{ $product->pivot->cantidad_aplicada }}">
+                                                <input name="metric_aplicada_id" type="hidden" value="{{ $product->pivot->metric_aplicada_id }}">
                                                 <input name="created_at" type="hidden" value="{{ $product->pivot->created_at }}">
                                                 <button class="btn btn-xs btn-danger user_destroy"
                                                         data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.delete') }}">
@@ -83,7 +92,14 @@
                             @foreach($ciclo->insumos as $insumo)
                                 <tr>
                                     <td>{{ $insumo->name }}</td>
-                                    <td>{{ $insumo->pivot->cantidad_aplicada . " " . $insumo->metric->name }} </td>
+                                    <td>{{ $insumo->pivot->cantidad_aplicada }}
+                                        @foreach($metrics as $metric)
+                                            @if($metric->id === $insumo->pivot->metric_aplicada_id)
+                                                {{ $metric->name }}
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    </td>
                                     <td>{{ $insumo->pivot->created_at }}</td>
                                     <td>
                                         <a class="btn btn-xs" href="#">
@@ -92,6 +108,7 @@
                                                 {!! method_field('DELETE') !!}
                                                 <input name="ciclo_id" type="hidden" value="{{ $ciclo->id }}">
                                                 <input name="cantidad_aplicada" type="hidden" value="{{ $insumo->pivot->cantidad_aplicada }}">
+                                                <input name="metric_aplicada_id" type="hidden" value="{{ $insumo->pivot->metric_aplicada_id }}">
                                                 <input name="created_at" type="hidden" value="{{ $insumo->pivot->created_at }}">
                                                 <button class="btn btn-xs btn-danger user_destroy"
                                                         data-toggle="tooltip" data-placement="top" data-title="{{ __('views.admin.users.index.delete') }}">

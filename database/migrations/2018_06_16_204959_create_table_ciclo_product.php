@@ -20,6 +20,8 @@ class CreateTableCicloProduct extends Migration
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->string('cantidad_aplicada');
+            $table->unsignedInteger('metric_aplicada_id');
+            $table->foreign('metric_aplicada_id')->references('id')->on('metrics');
             $table->timestamps();
         });
     }

@@ -105,6 +105,9 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::delete('ciclos/balanceado/{product_id}' , 'CicloController@destroyBalanceado')->name('ciclos.destroy.balanceado');
     Route::post('ciclos/insumo/store' , 'CicloController@storeInsumo')->name('ciclos.store.insumo');
     Route::delete('ciclos/insumo/{insumo_id}' , 'CicloController@destroyInsumo')->name('ciclos.destroy.insumo');
+
+    Route::get('cosechas/create/{ciclo_id}/{piscina_id}' , 'CosechaController@create')->name('cosechas.create');
+    Route::post('cosechas/store' , 'CosechaController@store')->name('cosechas.store');
 });
 
 

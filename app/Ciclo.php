@@ -24,14 +24,14 @@ class Ciclo extends Model
         return $this->belongsTo(Planificacion::class);
     }
 
-    public function piscinas(){
-        return $this->hasMany(Piscina::class);
+    public function piscina(){
+        return $this->belongsTo(Piscina::class);
     }
 
     public function products(){
         return $this->belongsToMany(Product::class)
             ->with('metric')
-            ->withPivot('cantidad_aplicada')
+            ->withPivot('cantidad_aplicada' , 'metric_aplicada_id')
             ->orderBy('name', 'asc')
             ->withTimestamps();
     }
@@ -39,7 +39,7 @@ class Ciclo extends Model
     public function insumos(){
         return $this->belongsToMany(Insumo::class)
             ->with('metric')
-            ->withPivot('cantidad_aplicada')
+            ->withPivot('cantidad_aplicada' , 'metric_aplicada_id')
             ->orderBy('name', 'asc')
             ->withTimestamps();
     }

@@ -47,6 +47,9 @@
                         <a class="btn btn-xs btn-warning" href="{{ route('ciclos.create.insumo', [$piscina->ciclo_id]) }}">
                             Aplicar Insumo
                         </a>
+                        <a class="btn btn-xs btn-success" href="{{ route('cosechas.create', [$piscina->ciclo_id , $piscina->id]) }}">
+                            Cosechar
+                        </a>
                     </td>
                 </tr>
             @endforeach

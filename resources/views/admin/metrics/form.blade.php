@@ -27,7 +27,7 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Etiqueta de la Unidad de Medicion: <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Unidad de Medicion: <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input
@@ -47,7 +47,27 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Valor Equivalente de la Unidad de Medicion: <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Unidad Equivalente: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input
+                                        type="text"
+                                        id="equivalente"
+                                        name="equivalente"
+                                        required="required"
+                                        class="form-control col-md-7 col-xs-12"
+                                        autofocus
+                                        value="{{ old('equivalente') ?: $metric->equivalente }}"
+                                >
+                            </div>
+                            @if ($errors->has('equivalente'))
+                                <span class="invalid-feedback">
+                                <strong>{{ $errors->first('equivalente') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Valor Equivalente: <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input

@@ -16,7 +16,7 @@
             <thead>
             <tr>
                 <th>@sortablelink('name',  __('Unidad de Medicion'),['page' => $metrics->currentPage()])</th>
-                <th>@sortablelink('equivalente',  __('Unidad a Convertir'),['page' => $metrics->currentPage()])</th>
+                <th>@sortablelink('equivalente',  __('Unidad Equivalente'),['page' => $metrics->currentPage()])</th>
                 <th>@sortablelink('valor',__('Valor equivalente'),['page' => $metrics->currentPage()])</th>
                 <th>Actions</th>
             </tr>

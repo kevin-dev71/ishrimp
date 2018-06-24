@@ -30,12 +30,14 @@ class MetricRequest extends FormRequest
             case 'POST': {
                 return [
                     'name' => 'required|min:1',
+                    'equivalente' => 'required|min:1',
                     'valor' => 'required|between:0,99999.999'
                 ];
             }
             case 'PUT': {
                 return [
                     'name' => 'required|min:1',
+                    'equivalente' => 'required|min:1',
                     'valor' => 'required|between:0,99999.999'
                 ];
             }

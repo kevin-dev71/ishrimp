@@ -15,7 +15,7 @@
             <div class="tile-stats">
                 <div class="icon"><i class="fa fa-check-square-o"></i></div>
                 <div class="count">{{ __("Unidad de medicion: "). $metric->name }}</div>
-                <h3>{{ __("Valor: "). $metric->valor}}</h3>
+                <h3>{{ __("Equivalente a: "). $metric->valor . " " . $metric->equivalente}}</h3>
             </div>
         </div>
     </div>
