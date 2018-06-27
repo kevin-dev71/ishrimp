@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Cosecha extends Model
 {
 
-    protected $fillable = ['peso' , 'precio'];
+    protected $fillable = ['peso' , 'precio' , 'ciclo_id' , 'talla_id'];
 
     public function talla(){
-        return $this->belongsTo(Talla::class);
+        return $this->hasMany(Talla::class);
     }
 
     public function ciclo(){

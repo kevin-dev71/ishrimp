@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCosechasTable extends Migration
+class CreateTableCicloTalla extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCosechasTable extends Migration
      */
     public function up()
     {
-        /*Schema::create('cosechas', function (Blueprint $table) {
+        Schema::create('ciclo_talla', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('ciclo_id');
             $table->foreign('ciclo_id')->references('id')->on('ciclos');
@@ -22,7 +22,7 @@ class CreateCosechasTable extends Migration
             $table->string('peso');
             $table->string('precio');
             $table->timestamps();
-        });*/
+        });
     }
 
     /**
@@ -32,6 +32,6 @@ class CreateCosechasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cosechas');
+        Schema::dropIfExists('ciclo_talla');
     }
 }

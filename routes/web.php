@@ -106,8 +106,10 @@ Route::group(['middleware' => ['auth']] , function(){
     Route::post('ciclos/insumo/store' , 'CicloController@storeInsumo')->name('ciclos.store.insumo');
     Route::delete('ciclos/insumo/{insumo_id}' , 'CicloController@destroyInsumo')->name('ciclos.destroy.insumo');
 
-    Route::get('cosechas/create/{ciclo_id}/{piscina_id}' , 'CosechaController@create')->name('cosechas.create');
-    Route::post('cosechas/store' , 'CosechaController@store')->name('cosechas.store');
+    Route::get('cosechas/create/{ciclo_id}/{piscina_id}' , 'CicloController@createTalla')->name('cosechas.create');
+    Route::post('cosechas/store' , 'CicloController@storeTalla')->name('cosechas.store');
+    Route::delete('cosechas/{ciclo_talla_id}' , 'CicloController@destroyTalla')->name('cosechas.destroy');
+    Route::get('cosechas/finalizar/{ciclo_id}' , 'CicloController@finalizarCosecha')->name('cosechas.finalizar');
 });
 
 

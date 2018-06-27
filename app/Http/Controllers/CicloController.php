@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ciclo;
 use App\Finca;
 use App\Metric;
+use App\Piscina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -151,5 +152,52 @@ class CicloController extends Controller
         } catch (\Exception $exception) {
             return back()->with('message', ['danger', __("Error Eliminando el Insumo, no se pudo eliminar")]);
         }
+    }
+
+    public function createTalla ($ciclo_id , $piscina_id) {
+        $ciclo = Ciclo::findOrFail($ciclo_id);
+        $piscina = Piscina::findOrFail($piscina_id);
+        $btnText = __("Cosechar");
+        return view('cosechas.form', [
+            'btnText' => $btnText ,
+            'ciclo' => $ciclo ,
+            'piscina' => $piscina
+        ]);
+    }
+
+    public function storeTalla (Request $request) {
+
+        $ciclo = Ciclo::findOrFail($request->ciclo_id);
+
+        $ciclo->tallas()->attach( $request->talla , [
+            'peso' => $request->peso,
+            'precio' => $request->precio
+        ]);
+
+        return back()->with('message', ['success', __('Cosecha Registrado satisfactoriamente')]);
+    }
+
+    public function destroyTalla (Request $request , $ciclo_talla_id) {
+        try {
+            DB::delete('delete from ciclo_talla where id = ?', array(
+                    $ciclo_talla_id
+                )
+            );
+            return back()->with('message', ['success', __("Eliminado Cosecha Correctamente")]);
+        } catch (\Exception $exception) {
+            return back()->with('message', ['danger', __("Error Eliminando Cosecha, no se pudo eliminar")]);
+        }
+    }
+
+    public function finalizarCosecha (Ciclo $ciclo) {
+        return back()->with('message', ['danger', __("En Desarrollo")]);
+        /*try {
+            if($ciclo->delete()){
+                $ciclo->update(array('activo' => 0));
+            }
+            return back()->with('message', ['success', __("Siembra Desactivado correctamente")]);
+        } catch (\Exception $exception) {
+            return back()->with('message', ['danger', __("Error desactivando la siembra, no se pudo eliminar")]);
+        }*/
     }
 }

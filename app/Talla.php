@@ -18,4 +18,8 @@ class Talla extends Model
     public $sortable = ['name', 'peso'];
 
     protected $fillable = ['name' , 'peso'];
+
+    public function ciclos(){
+        return $this->belongsToMany(Ciclo::class);
+    }
 }

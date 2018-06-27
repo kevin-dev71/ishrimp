@@ -44,6 +44,12 @@ class Ciclo extends Model
             ->withTimestamps();
     }
 
+    public function tallas(){
+        return $this->belongsToMany(Talla::class)
+            ->withPivot('id' , 'peso' , 'precio')
+            ->withTimestamps();
+    }
+
     /*public function newPivot(Model $parent, array $attributes, $table, $exists)
     {
         if ($parent instanceof Product) {
